@@ -136,7 +136,7 @@ func (auth *AuthProxy) IsAllowedIP() error {
 
 	sourceIP, _, err := net.SplitHostPort(ip)
 	if err != nil {
-		return err
+		return fmt.Errorf("could not parse address: %w", err)
 	}
 	sourceObj := net.ParseIP(sourceIP)
 
